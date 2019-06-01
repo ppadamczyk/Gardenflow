@@ -19,10 +19,14 @@ import com.example.gardenflow.services.DatabaseServices;
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
-    EditText plantName, plantSpecies, plantAge;
+    public Boolean age = false;
+    public Boolean fertilization = false;
+    public Boolean watering = false;
+    final String gardenName = "Garden";
+    EditText plantName, plantSpecies, plantAge, plantFertilization,  plantWatering;
     DatabaseServices dbServices = new DatabaseServices();
     private Button addPlantButton;
-    private ImageButton openCalendar;
+    private ImageButton openCalendarForAge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,8 @@ public class AddPlant extends AppCompatActivity {
         plantName = (EditText) findViewById(R.id.plantName);
         plantSpecies = (EditText) findViewById(R.id.plantSpecies);
         plantAge = (EditText) findViewById(R.id.plantAge);
+        plantFertilization = (EditText) findViewById(R.id.fertilizationDate);
+        plantWatering = (EditText) findViewById(R.id.wateringDate);
 
         Button btnCamera = (Button) findViewById(R.id.addImg);
         plantImage = (ImageView) findViewById(R.id.plantImage);
@@ -49,26 +55,30 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbServices.addPlant("Duda");
+                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString());
                 openPlantDetailsActivity();
 
             }
         });
 
-        TextView plantAge = findViewById(R.id.plantAge);
+        String date = "";
+        if(savedInstanceState != null) {
+            date = savedInstanceState.getString("date");
+        }
 
-        String date = getIntent().getStringExtra("date");
-        if(date!= null)
-        plantAge.setText(date);
+        if(date != null && date != "") {
+            plantAge.setText(date);
+        }
 
-        openCalendar = (ImageButton) findViewById(R.id.openCalendar);
-        openCalendar.setOnClickListener(new View.OnClickListener() {
+        openCalendarForAge = (ImageButton) findViewById(R.id.openCalendarForAge);
+        openCalendarForAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                age = true;
                 openCalendarActivity();
+
             }
         });
-
 
     }
 
