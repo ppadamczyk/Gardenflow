@@ -4,6 +4,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -15,14 +16,36 @@ import okhttp3.Response;
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class DatabaseServices {
 
-    public void addPlant(String name) {
+    public void addPlant(final String name, final String species,final String age, final String gardenName, final String fertilizationDate, final String wateringDate) {
         Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-
+                    String uniqueID = UUID.randomUUID().toString();
                     MediaType mediaType = MediaType.parse("application/json");
-                    RequestBody body = RequestBody.create(mediaType, "{\n\t\"fields\": {\n                \"name\": {\n                    \"stringValue\": \"Architektura systemów komputerowych\"\n                },\n                \"email\":{\n                \t\"stringValue\": \"nauczyciel@nauczyciel.com\"\n                },\n                \"cardNumber\": {\n                \t\"stringValue\": \"9678678678\"\n                },\n                \"date\": {\n                \t\"timestampValue\": \"2019-03-01T14:10:15Z\"\n                }\n              \n            }\n}");
+                    RequestBody body = RequestBody.create(mediaType, " { \"fields\": {\n" +
+                            "    \"plantName\": {\n" +
+                            "      \"stringValue\": \"" + name + "\"\n" +
+                            "    },\n" +
+                            "    \"plantSpecies\": {\n" +
+                            "      \"stringValue\": \""+ species +"\"\n" +
+                            "    },\n" +
+                            "    \"gardenName\": {\n" +
+                            "      \"stringValue\": \"" + gardenName +"\"\n" +
+                            "    },\n" +
+                            "    \"plantId\": {\n" +
+                            "      \"stringValue\": \"" + uniqueID + "\"\n" +
+                            "    },\n" +
+                            "    \"plantAge\": {\n" +
+                            "      \"stringValue\": \"" + age + "\"\n" +
+                            "    },\n" +
+                            "    \"FertilizationPeriod\": {\n" +
+                            "      \"stringValue\": \"" + fertilizationDate + "\"\n" +
+                            "    },\n" +
+                            "    \"wateringPeriod\": {\n" +
+                            "      \"stringValue\": \"" + wateringDate + "\"\n" +
+                            "    }\n" +
+                            "  }}");
                     Request request = new Request.Builder()
                             .url("https://firestore.googleapis.com/v1beta1/projects/gardenflow-1b727/databases/%28default%29/documents/plants/")
                             .post(body)
