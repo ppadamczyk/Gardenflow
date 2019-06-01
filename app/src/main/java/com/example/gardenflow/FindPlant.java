@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class FindPlant extends AppCompatActivity {
     private Button searchForPlantButton;
+    private Button allPlantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,23 @@ public class FindPlant extends AppCompatActivity {
                 openSearchForPlantActivity();
             }
         });
+
+        allPlantsButton = (Button) findViewById(R.id.allPlantsButton);
+        allPlantsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAllPlantsActivity();
+            }
+        });
     }
 
     public void openSearchForPlantActivity() {
         Intent intent = new Intent(this, SearchForPlant.class);
         startActivity(intent);
+    }
 
+    public void openAllPlantsActivity() {
+        Intent intent = new Intent(this, AllPlants.class);
+        startActivity(intent);
     }
 }
