@@ -9,6 +9,7 @@ import android.widget.Button;
 public class HomePage extends AppCompatActivity {
     private Button addPlantButton;
     private Button settingsButton;
+    private Button findPlantButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,14 @@ public class HomePage extends AppCompatActivity {
                 openSettingsActivity();
             }
         });
+
+        findPlantButton = (Button) findViewById(R.id.findPlantButton);
+        findPlantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFindAPlantActivity();
+            }
+        });
     }
 
     public void openAddPlantActivity() {
@@ -39,6 +48,11 @@ public class HomePage extends AppCompatActivity {
 
     public void openSettingsActivity() {
         Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
+    public void openFindAPlantActivity() {
+        Intent intent = new Intent(this, FindPlant.class);
         startActivity(intent);
     }
 }
