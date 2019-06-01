@@ -17,6 +17,7 @@
         android:text="All plants"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/themeColorLight"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoImage" />
 
@@ -33,6 +34,7 @@
         android:text="Search for plant"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/themeColorLight"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/allPlantsButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoImage" />
