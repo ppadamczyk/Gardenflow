@@ -10,6 +10,7 @@ public class HomePage extends AppCompatActivity {
     private Button addPlantButton;
     private Button settingsButton;
     private Button findPlantButton;
+    private Button yourPlantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,16 @@ public class HomePage extends AppCompatActivity {
                 openFindAPlantActivity();
             }
         });
+
+        yourPlantsButton = (Button) findViewById(R.id.yourPlantsButton);
+        yourPlantsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openYourPlantsActivity();
+            }
+        });
+
+
     }
 
     public void openAddPlantActivity() {
@@ -53,6 +64,11 @@ public class HomePage extends AppCompatActivity {
 
     public void openFindAPlantActivity() {
         Intent intent = new Intent(this, FindPlant.class);
+        startActivity(intent);
+    }
+
+    public void openYourPlantsActivity() {
+        Intent intent = new Intent(this, YourPlants.class);
         startActivity(intent);
     }
 }
