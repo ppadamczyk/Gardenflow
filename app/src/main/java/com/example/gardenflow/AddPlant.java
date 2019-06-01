@@ -2,17 +2,25 @@ package com.example.gardenflow;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.gardenflow.services.DatabaseServices;
+
+@RequiresApi(api = Build.VERSION_CODES.P)
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
+    EditText plantName, plantSpecies, plantAge;
+    DatabaseServices dbServices = new DatabaseServices();
     private Button addPlantButton;
     private ImageButton openCalendar;
     @Override
@@ -20,8 +28,12 @@ public class AddPlant extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
 
+        plantName = (EditText) findViewById(R.id.plantName);
+        plantSpecies = (EditText) findViewById(R.id.plantSpecies);
+        plantAge = (EditText) findViewById(R.id.plantAge);
+
         Button btnCamera = (Button) findViewById(R.id.addImg);
-        plantImage = (ImageView)findViewById(R.id.plantImage);
+        plantImage = (ImageView) findViewById(R.id.plantImage);
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +49,9 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbServices.addPlant("Duda");
                 openPlantDetailsActivity();
+
             }
         });
 
@@ -55,12 +69,13 @@ public class AddPlant extends AppCompatActivity {
             }
         });
 
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         plantImage.setImageBitmap(bitmap);
     }
 
