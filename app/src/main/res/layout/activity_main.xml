@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:alpha="0.7"
+    android:background="#000"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imglogo"
+        android:layout_width="130sp"
+        android:layout_height="130sp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
+        android:id="@+id/txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_below="@id/imglogo"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="cursive"
+        android:text="Your App Name"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold"></TextView>
 
-</android.support.constraint.ConstraintLayout>
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/login_with_google"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@id/imglogo"
+        android:layout_marginTop="200sp" />
+</RelativeLayout>
