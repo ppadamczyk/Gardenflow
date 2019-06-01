@@ -10,7 +10,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddPlant"></activity>
+        <activity android:name=".Settings"></activity>
+        <activity android:name=".AddPlant" />
         <activity android:name=".HomePage">
 
             <!-- Changed launching view for development purpouses -->
