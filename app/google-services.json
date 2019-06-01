@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "1042146236718-h2t60iqdvn7gdn6fvu58rdtghc099023.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.gardenflow",
-            "certificate_hash": "86B990D6DA13C0363F910268FEE9069B7A44C039"
-          }
-        },
-        {
           "client_id": "1042146236718-0n1i293vqdncg6t2agn7b42japda9d4q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -44,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1042146236718-h3hmf4jdal6clpcpfkagtiiitf613psi.apps.googleusercontent.com",
+              "client_id": "1042146236718-h2t60iqdvn7gdn6fvu58rdtghc099023.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
