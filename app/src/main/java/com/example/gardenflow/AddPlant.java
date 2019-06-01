@@ -11,12 +11,14 @@ import android.widget.ImageView;
 
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
+    private Button addPlantButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
 
-        Button btnCamera = (Button)findViewById(R.id.addImg);
+        Button btnCamera = (Button) findViewById(R.id.addImg);
         plantImage = (ImageView)findViewById(R.id.plantImage);
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
@@ -26,6 +28,14 @@ public class AddPlant extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
+
+        addPlantButton = (Button) findViewById(R.id.addPlantToCollectionButton);
+        addPlantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlantDetailsActivity();
+            }
+        });
     }
 
     @Override
@@ -33,5 +43,10 @@ public class AddPlant extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap)data.getExtras().get("data");
         plantImage.setImageBitmap(bitmap);
+    }
+
+    public void openPlantDetailsActivity() {
+        Intent intent = new Intent(this, PlantDetails.class);
+        startActivity(intent);
     }
 }

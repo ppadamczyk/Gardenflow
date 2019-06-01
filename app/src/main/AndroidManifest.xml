@@ -10,7 +10,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".YourPlants"></activity>
+        <activity android:name=".PlantDetails"></activity>
+        <activity android:name=".YourPlants" />
         <activity android:name=".AllPlants" />
         <activity android:name=".SearchForPlant" />
         <activity android:name=".FindPlant" />

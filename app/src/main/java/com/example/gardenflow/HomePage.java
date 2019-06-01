@@ -7,10 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class HomePage extends AppCompatActivity {
-    private Button addPlantButton;
-    private Button settingsButton;
-    private Button findPlantButton;
-    private Button yourPlantsButton;
+    private Button addPlantButton, settingsButton, findPlantButton, yourPlantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
