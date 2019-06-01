@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
     private Button addPlantButton;
-
+    private ImageButton openCalendar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class AddPlant extends AppCompatActivity {
             }
         });
 
+
+
         addPlantButton = (Button) findViewById(R.id.addPlantToCollectionButton);
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +40,21 @@ public class AddPlant extends AppCompatActivity {
                 openPlantDetailsActivity();
             }
         });
+
+        TextView plantAge = findViewById(R.id.plantAge);
+
+        String date = getIntent().getStringExtra("date");
+        if(date!= null)
+        plantAge.setText(date);
+
+        openCalendar = (ImageButton) findViewById(R.id.openCalendar);
+        openCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCalendarActivity();
+            }
+        });
+
     }
 
     @Override
@@ -47,6 +66,10 @@ public class AddPlant extends AppCompatActivity {
 
     public void openPlantDetailsActivity() {
         Intent intent = new Intent(this, PlantDetails.class);
+        startActivity(intent);
+    }
+    public void openCalendarActivity() {
+        Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
     }
 }
