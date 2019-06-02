@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/addWateringNotificationsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="225dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="30dp"
@@ -19,31 +19,29 @@
         android:text="Add watering notifications"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeDetailsButton" />
 
     <Button
-        android:id="@+id/deletePlantButon"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/ViewAllPlantsButon"
+        android:layout_width="225dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@color/themeColorLightGreen"
-        android:text="Delete plant"
+        android:text="View all plants"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clonePlantButton" />
+        app:layout_constraintTop_toBottomOf="@+id/addFertilizationNotificationsButton" />
 
     <Button
         android:id="@+id/addFertilizationNotificationsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="225dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="30dp"
@@ -53,41 +51,22 @@
         android:text="Add fertilization notifications"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addWateringNotificationsButton" />
 
     <Button
-        android:id="@+id/clonePlantButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/themeColorLightGreen"
-        android:text="Clone plant"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addFertilizationNotificationsButton" />
-
-    <Button
         android:id="@+id/changeDetailsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="225dp"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@color/themeColorLightGreen"
         android:text="Change details"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 

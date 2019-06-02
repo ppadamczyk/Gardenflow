@@ -1,12 +1,13 @@
 package com.example.gardenflow;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 public class PlantDetails extends AppCompatActivity {
-    private Button changeDetailsButton, addWateringNotificationsButton, addFertilizationNotificationsButton, clonePlantButton, deletePlantButton;
+    private Button changeDetailsButton, addWateringNotificationsButton, addFertilizationNotificationsButton, viewAllPlantsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +38,11 @@ public class PlantDetails extends AppCompatActivity {
             }
         });
 
-        clonePlantButton = (Button) findViewById(R.id.clonePlantButton);
-        clonePlantButton.setOnClickListener(new View.OnClickListener() {
+        viewAllPlantsBtn = (Button) findViewById(R.id.ViewAllPlantsButon);
+        viewAllPlantsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clonePlant();
-            }
-        });
-
-        deletePlantButton = (Button) findViewById(R.id.deletePlantButon);
-        deletePlantButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deletePlant();
+                viewAllPlants();
             }
         });
     }
@@ -58,6 +51,8 @@ public class PlantDetails extends AppCompatActivity {
     public void changeDetails() {}
     public void addWateringNotifications() {}
     public void addFertilizationNotifications() {}
-    public void clonePlant() {}
-    public void deletePlant() {}
+    public void viewAllPlants() {
+        Intent intent = new Intent(this, YourPlants.class);
+        startActivity(intent);
+    }
 }
