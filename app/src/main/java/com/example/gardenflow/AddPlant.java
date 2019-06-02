@@ -1,33 +1,23 @@
 package com.example.gardenflow;
-
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.example.gardenflow.services.DatabaseServices;
 import com.example.gardenflow.services.ImgServices;
-
-import java.io.ByteArrayOutputStream;
 
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
     public Boolean age = false;
-    public Boolean fertilization = false;
-    public Boolean watering = false;
     final String gardenName = "Garden";
     EditText plantName, plantSpecies, plantAge, plantFertilization,  plantWatering;
     DatabaseServices dbServices = new DatabaseServices();
@@ -61,15 +51,19 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //getting image from camera and converting it to Bitmap
+                plantImage.setDrawingCacheEnabled(true);
+                Bitmap scaledBitmap = plantImage.getDrawingCache();
 
-                //img encode
-                String imageString = ImgServices.imgEncode(getApplicationContext());
+                //Bitmap encode to base64
+                String imageString = ImgServices.imgEncode(scaledBitmap);
 
                 //adding plant to database
                 dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString(), imageString);
                 openPlantDetailsActivity();
 
             }
+
         });
 
 
@@ -98,6 +92,7 @@ public class AddPlant extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        plantImage.setBackground(null);
         plantImage.setImageBitmap(bitmap);
 
 

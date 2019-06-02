@@ -6,16 +6,13 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.widget.ImageView;
 
-import com.example.gardenflow.R;
-
 import java.io.ByteArrayOutputStream;
 
 public class ImgServices {
 
-    public static String imgEncode(Context ctx){
+    public static String imgEncode(Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Bitmap bitmap2 = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.rose);
-        bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
         String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return imageString;
