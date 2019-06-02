@@ -1,5 +1,6 @@
 package com.example.gardenflow;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gardenflow.services.DatabaseServices;
+import com.example.gardenflow.services.ImgServices;
 
 import java.io.ByteArrayOutputStream;
 
@@ -59,12 +61,9 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //encoding img to some other img format i guess?
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.rose);
-                bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                byte[] imageBytes = baos.toByteArray();
-                String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+                //img encode
+                String imageString = ImgServices.imgEncode(getApplicationContext());
 
                 //adding plant to database
                 dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString(), imageString);
@@ -72,6 +71,7 @@ public class AddPlant extends AppCompatActivity {
 
             }
         });
+
 
         String date = "";
         if(savedInstanceState != null) {
