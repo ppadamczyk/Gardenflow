@@ -24,8 +24,6 @@
         <activity android:name=".PlantDetails" />
         <activity android:name=".YourPlants" />
         <activity android:name=".AllPlants" />
-        <activity android:name=".SearchForPlant" />
-        <activity android:name=".FindPlant" />
         <activity android:name=".Settings" />
         <activity android:name=".AddPlant" />
         <activity android:name=".HomePage" /> <!-- Changed launching view for development purpouses -->

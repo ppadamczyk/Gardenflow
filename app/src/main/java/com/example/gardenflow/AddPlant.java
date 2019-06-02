@@ -1,6 +1,8 @@
 package com.example.gardenflow;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -22,15 +24,18 @@ public class AddPlant extends AppCompatActivity {
     public Boolean age = false;
     public Boolean fertilization = false;
     public Boolean watering = false;
-    final String gardenName = "Garden";
     EditText plantName, plantSpecies, plantAge, plantFertilization,  plantWatering;
     DatabaseServices dbServices = new DatabaseServices();
     private Button addPlantButton;
     private ImageButton openCalendarForAge;
+    private String gardenName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
+
+        SharedPreferences sharedPref = getSharedPreferences("my_prefs", Activity.MODE_PRIVATE);
+        gardenName = sharedPref.getString("name", "");
 
         plantName = (EditText) findViewById(R.id.plantName);
         plantSpecies = (EditText) findViewById(R.id.plantSpecies);
