@@ -40,8 +40,7 @@ public class AddPlant extends AppCompatActivity {
         plantName = (EditText) findViewById(R.id.plantName);
         plantSpecies = (EditText) findViewById(R.id.plantSpecies);
         plantAge = (EditText) findViewById(R.id.plantAge);
-        plantFertilization = (EditText) findViewById(R.id.fertilizationDate);
-        plantWatering = (EditText) findViewById(R.id.wateringDate);
+
 
         Button btnCamera = (Button) findViewById(R.id.addImg);
         plantImage = (ImageView) findViewById(R.id.plantImage);
@@ -60,18 +59,26 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString());
+                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName);
                 openPlantDetailsActivity();
 
             }
         });
+        addPlantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlantDetailsActivity();
+            }
+        });
 
+        TextView plantAge = findViewById(R.id.plantAge);
         String date = "";
         if(savedInstanceState != null) {
             date = savedInstanceState.getString("date");
         }
 
-        if(date != null && date != "") {
+        date = getIntent().getStringExtra("date");
+        if(date!= null) {
             plantAge.setText(date);
         }
 
@@ -79,9 +86,7 @@ public class AddPlant extends AppCompatActivity {
         openCalendarForAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                age = true;
                 openCalendarActivity();
-
             }
         });
 
