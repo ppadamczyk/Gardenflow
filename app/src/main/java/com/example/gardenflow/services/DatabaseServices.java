@@ -16,7 +16,7 @@ import okhttp3.Response;
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class DatabaseServices {
 
-    public void addPlant(final String name, final String species,final String age, final String gardenName, final String fertilizationDate, final String wateringDate) {
+    public void addPlant(final String name, final String species,final String age, final String gardenName) {
         Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
@@ -39,12 +39,6 @@ public class DatabaseServices {
                             "    \"plantAge\": {\n" +
                             "      \"stringValue\": \"" + age + "\"\n" +
                             "    },\n" +
-                            "    \"FertilizationPeriod\": {\n" +
-                            "      \"stringValue\": \"" + fertilizationDate + "\"\n" +
-                            "    },\n" +
-                            "    \"wateringPeriod\": {\n" +
-                            "      \"stringValue\": \"" + wateringDate + "\"\n" +
-                            "    }\n" +
                             "  }}");
                     Request request = new Request.Builder()
                             .url("https://firestore.googleapis.com/v1beta1/projects/gardenflow-1b727/databases/%28default%29/documents/plants/")
