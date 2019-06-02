@@ -21,7 +21,7 @@ import com.example.gardenflow.services.ImgServices;
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
     public Boolean age = false;
-    final String gardenName = "Garden";
+    String gardenName = "Garden";
     EditText plantName, plantSpecies, plantAge, plantFertilization,  plantWatering;
     DatabaseServices dbServices = new DatabaseServices();
     private Button addPlantButton;
