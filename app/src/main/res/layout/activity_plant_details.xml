@@ -8,17 +8,18 @@
 
     <Button
         android:id="@+id/addWateringNotificationsButton"
-        android:layout_width="225dp"
-        android:layout_height="80dp"
+        android:layout_width="140dp"
+        android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@color/themeColorLightGreen"
         android:text="Add watering notifications"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeDetailsButton" />
 
@@ -40,17 +41,18 @@
 
     <Button
         android:id="@+id/addFertilizationNotificationsButton"
-        android:layout_width="225dp"
-        android:layout_height="80dp"
+        android:layout_width="142dp"
+        android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@color/themeColorLightGreen"
         android:text="Add fertilization notifications"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addWateringNotificationsButton" />
 
