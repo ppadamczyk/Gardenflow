@@ -34,7 +34,7 @@ public class HomePage extends AppCompatActivity {
         findPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFindAPlantActivity();
+                openSpeciesActivity();
             }
         });
 
@@ -64,8 +64,8 @@ public class HomePage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openFindAPlantActivity() {
-        Intent intent = new Intent(this, FindPlant.class);
+    public void openSpeciesActivity() {
+        Intent intent = new Intent(this, AllPlants.class);
         startActivity(intent);
     }
 
