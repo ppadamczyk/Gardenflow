@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,8 +44,8 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
     private final Context mContext = this;
     public SharedPrefManager sharedPrefManager;
 
+    EditText gardenName;
     ImageView imglogo;
-    TextView txthead;
     private GoogleApiClient mGoogleApiClient;
     FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -65,13 +66,13 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        gardenName = (EditText) findViewById(R.id.gardenName);
         mSignInButton = (SignInButton) findViewById(R.id.login_with_google);
         imglogo = (ImageView) findViewById(R.id.imglogo);
-        txthead = (TextView) findViewById(R.id.txt);
         mSignInButton.setSize(SignInButton.SIZE_WIDE);
         sharedPrefManager = new SharedPrefManager(mContext);
         if (sharedPrefManager.getISLogged_IN()) {
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            Intent intent = new Intent(MainActivity.this, HomePage.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -121,7 +122,7 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
 //                    Toast.makeText(LoginActivity.this, "Account created!", Toast.LENGTH_SHORT).show();
 
                     // After saving data to Firebase, goto next activity
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, HomePage.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -209,7 +210,9 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
     }
 
     public void openHomePage(){
-      Intent intent = new Intent(this, HomeActivity.class);
+      Intent intent = new Intent(this, HomePage.class);
+      String gName=gardenName.getText().toString();
+      intent.putExtra("gardenName",gName);
       startActivity(intent);
     }
 
@@ -232,7 +235,7 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
 
 //                            Toast.makeText(LoginActivity.this, "Login successful",
 //                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(MainActivity.this, HomePage.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             finish();

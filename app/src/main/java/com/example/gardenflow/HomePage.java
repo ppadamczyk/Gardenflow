@@ -46,7 +46,12 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+      Bundle extras = getIntent().getExtras();
+      if (extras != null) {
+        String gardenName = extras.getString("gardenName");
 
+        //The key argument here must match that used in the other activity
+      }
     }
 
     public void openAddPlantActivity() {
