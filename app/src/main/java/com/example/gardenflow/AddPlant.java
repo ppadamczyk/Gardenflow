@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.example.gardenflow.services.DatabaseServices;
 import com.example.gardenflow.services.ImgServices;
 
@@ -21,11 +23,13 @@ import com.example.gardenflow.services.ImgServices;
 public class AddPlant extends AppCompatActivity {
     ImageView plantImage;
     public Boolean age = false;
-    String gardenName = "Garden";
+    public Boolean fertilization = false;
+    public Boolean watering = false;
     EditText plantName, plantSpecies, plantAge, plantFertilization,  plantWatering;
     DatabaseServices dbServices = new DatabaseServices();
     private Button addPlantButton;
     private ImageButton openCalendarForAge;
+    private String gardenName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +41,7 @@ public class AddPlant extends AppCompatActivity {
         plantName = (EditText) findViewById(R.id.plantName);
         plantSpecies = (EditText) findViewById(R.id.plantSpecies);
         plantAge = (EditText) findViewById(R.id.plantAge);
-        plantFertilization = (EditText) findViewById(R.id.fertilizationDate);
-        plantWatering = (EditText) findViewById(R.id.wateringDate);
+
 
         Button btnCamera = (Button) findViewById(R.id.addImg);
         plantImage = (ImageView) findViewById(R.id.plantImage);
@@ -65,20 +68,27 @@ public class AddPlant extends AppCompatActivity {
                 String imageString = ImgServices.imgEncode(scaledBitmap);
 
                 //adding plant to database
-                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString(), imageString);
+                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, imageString);
                 openPlantDetailsActivity();
 
             }
 
         });
+        addPlantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlantDetailsActivity();
+            }
+        });
 
-
+        TextView plantAge = findViewById(R.id.plantAge);
         String date = "";
         if(savedInstanceState != null) {
             date = savedInstanceState.getString("date");
         }
 
-        if(date != null && date != "") {
+        date = getIntent().getStringExtra("date");
+        if(date!= null) {
             plantAge.setText(date);
         }
 
@@ -86,9 +96,7 @@ public class AddPlant extends AppCompatActivity {
         openCalendarForAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                age = true;
                 openCalendarActivity();
-
             }
         });
 
