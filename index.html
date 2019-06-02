@@ -1,0 +1,143 @@
+<html>
+	<head>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<style>
+			img{
+				height: 20rem;
+				padding:  0 3rem
+			}
+			body{
+				background-color:#5c821A;
+				margin-top:0;
+			}
+			.options{
+				width: 80%;
+				margin: 1rem auto;
+				height:4rem;
+				background-color:white;
+			}
+			.desc{
+				width: 80%;
+				background-color:white;
+				height:70%;
+				margin: auto;
+			}
+			#info-desc-p{
+				width: 100%;
+				text-align: center;
+				padding: 1rem 3rem ;
+			}
+			.col-3{
+				padding-top:1rem;
+				padding-bottom: 1rem;
+				text-align:center;
+				color:#5c821A;
+				cursor:pointer;
+				
+			}
+			.active{
+				background-color:#5c821A;
+				color:white;
+				border: 1px solid white;
+			}
+			.footer{
+				background-color:#456310;
+				color:white;
+				position: relative;
+				bottom:0;
+				width:100%;
+				margin-right:0;
+				margin-left:0;
+				margin-top:1.8rem;
+			}
+			a{color:white;}
+			a:hover{color:white}
+		</style>
+	</head>
+	
+	<body>
+		<div class="options row">
+			<div class="col-3 picker" id="tab1"><strong>About the project</strong></div>
+			<div class="col-3 picker active" id="tab2"><strong>Authors</strong></div>
+			<div class="col-3 picker"id="tab3"><strong>About the App</strong></div>
+			<div class="col-3 picker" id="tab4"><strong>Screenshots</strong></div>
+		</div>
+		<div class="desc">
+			<p id="info-desc-p">
+				<br><br><br><br><br><br><strong>The members of the project team are:</strong><br><br>Przemysław Adamczyk - team leader, <br> Żaneta Cichoń, <br> Marta Chojnacka, <br> Jakub Duda.
+			</p>
+		</div>
+		<div class="footer row">
+			<div class="col-3"><a href="https://balsamiq.cloud/spqdpry/pd9gup8/r2278?f=N4IgUiBcCMA0IDkpxAYWfAMhkAhKADPALI4BaOA0lANoC6AvkA%3D%3D">
+           <div class="icon">
+                <i class="fas fa-laptop-code"></i>
+                Prototype
+            </div> 
+        </a></div>
+			<div class="col-3"><a href="https://github.com/ppadamczyk/Gardenflow">
+            <div class="icon">
+                <i class="fas fa-code"></i>
+                Code repo
+            </div>
+        </a></div>
+			<div class="col-3"><a href="https://github.com/ppadamczyk/Gardenflow/projects/1">
+            <div class="icon">
+                <i class="fab fa-trello"></i>
+                Project
+            </div>
+        </a></div>
+			<div class="col-3"><a href="https://zapodaj.net/images/c328b4afe247f.png">
+            <div class="icon">
+                <i class="fas fa-project-diagram"></i>
+                UML Schema
+            </div>
+        </a></div>
+		</div>
+		</div>
+	<script>
+        var textValues = [
+		'The topic of the project is "Gardenflow". The task was to create a mobile application which enable user to create his own garden and profiles of plants in it. Each plant has his own details such as name, photo and species. Additionally the app provide features to add reminders about its watering and fertilization.',
+            '<br><br><br><br><br><br><strong>The members of the project team are:</strong><br><br>Przemysław Adamczyk - team leader, <br> Żaneta Cichoń, <br> Marta Chojnacka, <br> Jakub Duda.',
+			'The main purpose of the application is to integrate plants in the garden an help user to take care of it.<br><br><ul style="text-align:left">Application offers the following features: <li>authentication of the users,</li><li>adding plants to virtual garden,</li><li>list lot of new species,</li><li>adding photos of the plants,</li><li>adding notifications,</li><li>adding dates in calendar,</li></ul><br>',
+            'Here are the few screenshots demostrating the functionality of the app:<br><br> <img src="https://zapodaj.net/images/66f31c05bf6c8.png"/><img src="https://zapodaj.net/images/da7f76e08226d.png"/><img src="https://zapodaj.net/images/31fc3b52e95c0.png"/>'
+        ]
+        var tab1 = document.getElementById("tab1");
+        var tab2 = document.getElementById("tab2");
+        var tab3 = document.getElementById("tab3");
+        var tab4 = document.getElementById("tab4");
+        var desc = document.getElementById("info-desc-p");
+        
+        tab1.addEventListener("click", function(){
+            tab1.classList.add("active");
+            tab2.classList.remove("active");
+            tab3.classList.remove("active");
+            tab4.classList.remove("active");
+            desc.innerHTML = textValues[0];
+        });
+        tab2.addEventListener("click", function(){
+            tab2.classList.add("active");
+            tab1.classList.remove("active");
+            tab3.classList.remove("active");
+            tab4.classList.remove("active");
+            desc.innerHTML = textValues[1];
+        });
+        tab3.addEventListener("click", function(){
+            tab3.classList.add("active");
+            tab1.classList.remove("active");
+            tab2.classList.remove("active");
+            tab4.classList.remove("active");
+            desc.innerHTML = textValues[2];
+        });
+        tab4.addEventListener("click", function(){
+            tab4.classList.add("active");
+            tab1.classList.remove("active");
+            tab2.classList.remove("active");
+            tab3.classList.remove("active");
+            desc.innerHTML = textValues[3];
+        });
+        
+
+    </script>
+	</body>
+</html>
