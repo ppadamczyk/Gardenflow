@@ -2,11 +2,13 @@ package com.example.gardenflow;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gardenflow.services.DatabaseServices;
+
+import java.io.ByteArrayOutputStream;
 
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class AddPlant extends AppCompatActivity {
@@ -55,7 +59,15 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString());
+                //encoding img to some other img format i guess?
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.rose);
+                bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] imageBytes = baos.toByteArray();
+                String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+                //adding plant to database
+                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, plantFertilization.getText().toString(), plantWatering.getText().toString(), imageString);
                 openPlantDetailsActivity();
 
             }
@@ -87,6 +99,8 @@ public class AddPlant extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         plantImage.setImageBitmap(bitmap);
+
+
     }
 
     public void openPlantDetailsActivity() {

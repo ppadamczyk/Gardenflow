@@ -16,7 +16,7 @@ import okhttp3.Response;
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class DatabaseServices {
 
-    public void addPlant(final String name, final String species,final String age, final String gardenName, final String fertilizationDate, final String wateringDate) {
+    public void addPlant(final String name, final String species,final String age, final String gardenName, final String fertilizationDate, final String wateringDate, final String imageString) {
         Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
@@ -44,6 +44,9 @@ public class DatabaseServices {
                             "    },\n" +
                             "    \"wateringPeriod\": {\n" +
                             "      \"stringValue\": \"" + wateringDate + "\"\n" +
+                            "    },\n" +
+                            "    \"imageString\": {\n" +
+                            "      \"stringValue\": \"" + imageString + "\"\n" +
                             "    }\n" +
                             "  }}");
                     Request request = new Request.Builder()
