@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gardenflow.services.DatabaseServices;
+import com.example.gardenflow.services.ImgServices;
 
 @RequiresApi(api = Build.VERSION_CODES.P)
 public class AddPlant extends AppCompatActivity {
@@ -59,10 +60,19 @@ public class AddPlant extends AppCompatActivity {
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName);
+                //getting image from camera and converting it to Bitmap
+                plantImage.setDrawingCacheEnabled(true);
+                Bitmap scaledBitmap = plantImage.getDrawingCache();
+
+                //Bitmap encode to base64
+                String imageString = ImgServices.imgEncode(scaledBitmap);
+
+                //adding plant to database
+                dbServices.addPlant(plantName.getText().toString(),plantSpecies.getText().toString(),plantAge.getText().toString(), gardenName, imageString);
                 openPlantDetailsActivity();
 
             }
+
         });
         addPlantButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +106,10 @@ public class AddPlant extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        plantImage.setBackground(null);
         plantImage.setImageBitmap(bitmap);
+
+
     }
 
     public void openPlantDetailsActivity() {
