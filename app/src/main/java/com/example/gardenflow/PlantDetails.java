@@ -26,13 +26,7 @@ public class PlantDetails extends AppCompatActivity {
         setContentView(R.layout.activity_plant_details);
 
         fertilizationButton = (Button) findViewById(R.id.fertilizationButton);
-        changeDetailsButton = (Button) findViewById(R.id.changeDetailsButton);
-        changeDetailsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeDetails();
-            }
-        });
+        wateringButton = (Button) findViewById(R.id.wateringButton);
 
         fertilizationDate = (EditText) findViewById(R.id.fertilizationDate);
 
