@@ -3,4 +3,6 @@
     <string name="web_client_id">1042146236718-h2t60iqdvn7gdn6fvu58rdtghc099023.apps.googleusercontent.com</string>
     <string name="loading">Loading...</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_calendar_fertilization">CalendarFertilization</string>
+    <string name="title_activity_calendar_watering">CalendarWatering</string>
 </resources>

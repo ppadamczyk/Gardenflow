@@ -6,90 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".PlantDetails">
 
-    <Button
-        android:id="@+id/addWateringNotificationsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+    <EditText
+        android:id="@+id/fertilizationDate"
+        android:layout_width="140dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginRight="132dp"
         android:background="@color/themeColorLightGreen"
-        android:text="Add watering notifications"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeDetailsButton" />
-
-    <Button
-        android:id="@+id/deletePlantButon"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/themeColorLightGreen"
-        android:text="Delete plant"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clonePlantButton" />
-
-    <Button
-        android:id="@+id/addFertilizationNotificationsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/themeColorLightGreen"
+        android:gravity="center"
         android:text="Add fertilization notifications"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addWateringNotificationsButton" />
-
-    <Button
-        android:id="@+id/clonePlantButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/themeColorLightGreen"
-        android:text="Clone plant"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addFertilizationNotificationsButton" />
-
-    <Button
-        android:id="@+id/changeDetailsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/themeColorLightGreen"
-        android:text="Change details"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/ViewAllPlantsButon"
+        android:layout_width="225dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/themeColorLightGreen"
+        android:text="View all plants"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wateringDate" />
+
+    <EditText
+        android:id="@+id/wateringDate"
+        android:layout_width="140dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/themeColorLightGreen"
+        android:gravity="center"
+        android:text="Add watering notifications"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fertilizationDate" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -145,4 +108,74 @@
             android:layout_height="100dp"
             app:srcCompat="@drawable/rose" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/fertilizationButton"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/themeColorLightGreen"
+        android:onClick="fertilizationNotification"
+        android:text="set"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintStart_toEndOf="@+id/fertilizationDate"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/wateringButton"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/themeColorLightGreen"
+        android:onClick="wateringNotification"
+        android:text="set"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toEndOf="@+id/wateringDate"
+        app:layout_constraintTop_toBottomOf="@+id/fertilizationButton" />
+
+    <ImageButton
+        android:id="@+id/openCalendarForFertilization"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/fertilizationDate"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/calendar"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/openCalendarForWatering"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/wateringDate"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openCalendarForFertilization"
+        app:srcCompat="@drawable/calendar"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

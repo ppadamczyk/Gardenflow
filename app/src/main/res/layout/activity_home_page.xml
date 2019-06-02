@@ -42,7 +42,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
         android:background="@color/themeColorLightGreen"
-        android:text="Find a Plant"
+        android:text="Species"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/themeColorLight"
         android:textSize="24sp"
